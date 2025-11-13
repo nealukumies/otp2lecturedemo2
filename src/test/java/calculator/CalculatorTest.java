@@ -3,6 +3,8 @@ package calculator;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
+import java.io.ByteArrayInputStream;
+
 import static org.junit.jupiter.api.Assertions.*;
 
 class CalculatorTest {
@@ -48,6 +50,15 @@ class CalculatorTest {
         double expected = 15.0;
         double result = Calculator.multiply(num1, num2);
         assertEquals(expected, result, "Multiplication result should be correct");
+    }
+
+    @Test
+    void mainTest(){
+        String[] args = {};
+        String mockData = "2\n2\n";
+        ByteArrayInputStream mockInput = new ByteArrayInputStream(mockData.getBytes());
+        System.setIn(mockInput);
+        Calculator.main(args);
     }
 
 }
